@@ -1,6 +1,5 @@
-const serverless = require("serverless-http");
-const app = require("../app");
+import app from "./server.js";
 
-module.exports = (req, res) => {
-  return serverless(app)(req, res);
-};
+export default function handler(req, res) {
+  app(req, res); // Express app ko Vercel handler me wrap kar diya
+}
